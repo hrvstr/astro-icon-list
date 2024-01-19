@@ -35,7 +35,23 @@ import { Icon } from "astro-icon/components";
           <Icon class="text-blue-500" name="mdi:account" />
           Item 3
         </li>
+        <li data-id="4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"
+            ></path></svg
+          >
+          Item 4 (Regular SVG)
+        </li>
       </ul><section>
+        <p class="mt-5 text-gray-500">
+          Item 1-3 use astro-icon and Item 4 a regular SVG.
+        </p>
         <script>
           import List from "list.js";
           const idList = new List("list-wrapper", {
