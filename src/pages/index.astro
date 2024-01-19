@@ -1,16 +1,38 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <section id="list-wrapper">
+      <button class="sort" data-sort="id"> Sort by id</button>
+      <ul class="list">
+        <li data-id="1">
+          <Icon class="text-red-500" name="mdi:account" /> Item 1
+        </li>
+        <li data-id="2">
+          <Icon class="text-green-500" name="mdi:account" />
+          Item 2
+        </li>
+        <li data-id="3">
+          <Icon class="text-blue-500" name="mdi:account" />
+          Item 3
+        </li>
+      </ul><section>
+        <script>
+          import List from "list.js";
+          const idList = new List("list-wrapper", {
+            valueNames: [{ data: ["id"] }],
+          });
+        </script>
+      </section>
+    </section>
+  </body>
 </html>
