@@ -9,11 +9,21 @@ import { Icon } from "astro-icon/components";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <style>
+      li {
+        @apply flex items-center gap-1;
+      }
+
+      button {
+        @apply bg-black text-white px-2 py-1;
+      }
+    </style>
   </head>
   <body>
-    <section id="list-wrapper">
-      <button class="sort" data-sort="id"> Sort by id</button>
-      <ul class="list">
+    <section id="list-wrapper" class="p-5">
+      <button class="sort" data-sort="id"> Sort</button>
+      <button class="filter">Filter</button>
+      <ul class="list mt-5">
         <li data-id="1">
           <Icon class="text-red-500" name="mdi:account" /> Item 1
         </li>
@@ -30,6 +40,18 @@ import { Icon } from "astro-icon/components";
           import List from "list.js";
           const idList = new List("list-wrapper", {
             valueNames: [{ data: ["id"] }],
+          });
+
+          const filterButton = document.querySelector(".filter");
+
+          filterButton.addEventListener("click", () => {
+            idList.filter(function (item) {
+              if (item.values().id > 1) {
+                return true;
+              } else {
+                return false;
+              }
+            }); //
           });
         </script>
       </section>
