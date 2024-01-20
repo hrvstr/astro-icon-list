@@ -20,11 +20,17 @@ import { Icon } from "astro-icon/components";
     </style>
   </head>
   <body>
-    <div class="hidden"><Icon class="text-green-500" name="mdi:account" /></div>
     <section id="list-wrapper" class="p-5">
       <button class="sort" data-sort="id"> Sort</button>
       <button class="filter">Filter</button>
       <button class="clear-filter">Clear Filter</button>
+      <button class="remove-first">Remove first instance</button>
+      <div class="flex gap-3 my-5 border px-1 items-center w-fit rounded">
+        First instance: <Icon
+          class="text-red-500 first-instance"
+          name="mdi:account"
+        />
+      </div>
       <ul class="list mt-5">
         <li data-id="1">
           <Icon class="text-red-500" name="mdi:account" /> Item 1
@@ -76,6 +82,13 @@ import { Icon } from "astro-icon/components";
       const clearFilterButton = document.querySelector(".clear-filter");
       clearFilterButton.addEventListener("click", () => {
         idList.filter();
+      });
+
+      const removeFirstInstanceButton = document.querySelector(".remove-first");
+      const firstInstance = document.querySelector(".first-instance");
+      console.log(firstInstance, removeFirstInstanceButton);
+      removeFirstInstanceButton.addEventListener("click", () => {
+        firstInstance.remove();
       });
     </script>
   </body>
